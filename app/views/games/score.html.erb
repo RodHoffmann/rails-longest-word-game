@@ -1,11 +1,16 @@
-<h1>Result</h1>
-<%= @words %>
-<% if @ans == 'correct' %>
-  <h3><strong>Congratulations</strong> <%= @answer %> is a valid English word!</h3>
-<% elsif @ans == 'not in grid' %>
-  <h3>Sorry but <strong><%= @answer %></strong> can't be built out of <%= @grid_letters.join(', ') %></h3>
-<% elsif @ans == 'not in dict' %>
-   <h3>Sorry but <strong><%= @answer %></strong> does not seem to be a valid English word</h3>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-md-6 border border-black mt-5 text-center">
+    <h1>Result</h1>
+    <%= @words %>
+    <% if @ans == 'correct' %>
+      <h3><strong>Congratulations</strong> '<%= @answer %>'' is a valid English word!</h3>
+      <h5>Score: <%= @index**2 %> points</h5>
+    <% elsif @ans == 'not in grid' %>
+      <h3>Sorry but <strong><%= @answer %></strong> can't be built out of <%= @grid_letters.join(', ') %></h3>
+    <% elsif @ans == 'not in dict' %>
+      <h3>Sorry but <strong><%= @answer %></strong> does not seem to be a valid English word</h3>
+    <% end %>
 
-<%= link_to "Play again", "/new" %>
+    <%= link_to "Play again", "/new" %>
+  </div>
+</div>
